@@ -1,17 +1,18 @@
 package calculator;
 
-import javax.xml.transform.Result;
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
     private double lastResult; // 최근 계산 결과를 저장할 필드
-    public List<Double> ResultList;
+    private List<Double> resultList; // 결과를 저장할 리스트
 
+    // 생성자: resultList 초기화
     public Calculator() {
-        ResultList = new ArrayList<>();
+        this.resultList = new ArrayList<>();
     }
 
+    // 계산 메서드
     public double calculate(String operator, double num1, double num2) {
         double result = 0;
 
@@ -44,6 +45,7 @@ public class Calculator {
 
         // 최근 계산 결과 저장
         this.lastResult = result;
+        resultList.add(result); // 결과를 리스트에 저장
         return result;
     }
 
@@ -57,13 +59,24 @@ public class Calculator {
         this.lastResult = lastResult;
     }
 
+    // 결과 삭제 메서드
     public void removeResult() {
-        if (!ResultList.isEmpty()) {
-            ResultList.remove(0);
+        if (!resultList.isEmpty()) {
+            resultList.remove(0); // 처음 저장된 결과를 삭제
         } else {
-            System.out.println("삭제할 결과가 없습니다.");// 처음 저장된 결과를 삭제
+            System.out.println("삭제할 결과가 없습니다.");
         }
+    }
 
-
+    // 저장된 결과 조회 메서드
+    public void inquiryResult() {
+        if (resultList.isEmpty()) {
+            System.out.println("저장된 결과가 없습니다.");
+        } else {
+            System.out.println("저장된 연산결과:"); // 리스트에서 값을 불러온다
+            for (Double item : resultList) {
+                System.out.println(item);
+            }
+        }
     }
 }

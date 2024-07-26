@@ -44,22 +44,21 @@ public class App {
             System.out.println("저장된 연산결과를 조회 (inquiry 입력 시 조회)");
             String stf = sc.nextLine();
             if (stf.equalsIgnoreCase("inquiry")) {
-                        System.out.println("저장된 결과가 없습니다.");
-                    } else {
-                        System.out.println("저장된 연산결과:"); //list에서 값을 불러온다
+                calculator.inquiryResult();
             }
 
-            // 종료 여부 확인
-            System.out.println("계산기 종료(exit 입력 시 종료)");
-            String str = sc.nextLine();
-            if (str.equalsIgnoreCase("exit")) {
-                System.out.println("계산 종료");
-                break; // 루프 종료
-            } else {
-                System.out.println("계산 계속");
-            }
+
+        // 종료 여부 확인
+        System.out.println("계산기 종료(exit 입력 시 종료)");
+        String str = sc.nextLine();
+        if (str.equalsIgnoreCase("exit")) {
+            System.out.println("계산 종료");
+            break;
+        } else {
+            System.out.println("계산 계속");
         }
+    }
 
         sc.close(); // Scanner 자원 해제
-    }
+}
 }
