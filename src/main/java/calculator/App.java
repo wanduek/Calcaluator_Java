@@ -6,7 +6,8 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
 
         while (true) {
             System.out.println("사칙연산 or 원의 넓이 (press: 1 사칙연산, press: 2 원의 넓이, exit: 종료)");
@@ -29,7 +30,7 @@ public class App {
                         continue;
                     }
 
-                    double result = calculator.calculate(operator, num1, num2);
+                    double result = arithmeticCalculator.calculate(operator, num1, num2);
 
                     if (Double.isNaN(result)) {
                         continue; // 오류가 발생했으므로 루프의 시작으로 돌아감
@@ -41,7 +42,7 @@ public class App {
                     System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력)");
                     String std = sc.nextLine();
                     if (std.equalsIgnoreCase("remove")) {
-                        calculator.removeResult();
+                        arithmeticCalculator.removeResult();
                         System.out.println("첫 번째 결과값이 삭제되었습니다.");
                     }
 
@@ -49,7 +50,7 @@ public class App {
                     System.out.println("저장된 연산결과를 조회 (inquiry 입력 시 조회)");
                     String stf = sc.nextLine();
                     if (stf.equalsIgnoreCase("inquiry")) {
-                        calculator.inquiryResult();
+                        arithmeticCalculator.inquiryResult();
                     }
 
                     System.out.println("계속 진행하시겠습니까? (yes: 계속, no: 종료)");
@@ -65,7 +66,7 @@ public class App {
 
                     sc.nextLine(); // num1, num2 뒤의 줄 바꿈 문자 처리
 
-                    double crresult = calculator.calculateCircleAre(radius);
+                    double crresult = circleCalculator.calculateCircleAre(radius);
 
                     if (Double.isNaN(crresult)) {
                         continue; // 오류가 발생했으므로 루프의 시작으로 돌아감
@@ -77,7 +78,7 @@ public class App {
                     System.out.println("가장 먼저 저장된 원 넓이 결과를 삭제하시겠습니까? (remove 입력)");
                     String sta = sc.nextLine();
                     if (sta.equalsIgnoreCase("remove")) {
-                        calculator.crremoveResult();
+                        circleCalculator.removeResult();
                         System.out.println("첫 번째 결과값이 삭제되었습니다.");
                     }
 
@@ -85,8 +86,8 @@ public class App {
                     System.out.println("저장된 원 넓이 결과를 조회 (inquiry 입력 시 조회)");
                     String stb = sc.nextLine();
                     if (stb.equalsIgnoreCase("inquiry")) {
-                        calculator.crinquiryResult();
-                    }2
+                        circleCalculator.inquiryResult();
+                    }
 
                     System.out.println("계속 진행하시겠습니까? (yes: 계속, no: 종료)");
                     String continueChoice = sc.nextLine();
