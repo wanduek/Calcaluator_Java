@@ -1,6 +1,16 @@
 package calculator;
 
+import javax.xml.transform.Result;
+import java.util.*;
+
+
 public class Calculator {
+    private double lastResult; // 최근 계산 결과를 저장할 필드
+    public List<Double> ResultList;
+
+    public Calculator() {
+        ResultList = new ArrayList<>();
+    }
 
     public double calculate(String operator, double num1, double num2) {
         double result = 0;
@@ -32,6 +42,28 @@ public class Calculator {
             return Double.NaN; // Not a Number
         }
 
+        // 최근 계산 결과 저장
+        this.lastResult = result;
         return result;
+    }
+
+    // Getter 메서드: lastResult 필드의 값을 반환
+    public double getLastResult() {
+        return lastResult;
+    }
+
+    // Setter 메서드: lastResult 필드의 값을 설정
+    public void setLastResult(double lastResult) {
+        this.lastResult = lastResult;
+    }
+
+    public void removeResult() {
+        if (!ResultList.isEmpty()) {
+            ResultList.remove(0);
+        } else {
+            System.out.println("삭제할 결과가 없습니다.");// 처음 저장된 결과를 삭제
+        }
+
+
     }
 }
