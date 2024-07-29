@@ -1,30 +1,35 @@
 package calculator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ArithmeticCalculator extends Calculator {
+    private AddOperator addOperator;
+    private SubtractOperator subtractOperator;
+    private MultiplyOperator multiplyOperator;
+    private DivideOperator divideOperator;
+
+    public ArithmeticCalculator() {
+        super(); // 부모 클래스의 생성자 호출
+        this.addOperator = new AddOperator();
+        this.subtractOperator = new SubtractOperator();
+        this.multiplyOperator = new MultiplyOperator();
+        this.divideOperator = new DivideOperator();
+    }
 
     public double calculate(String operator, double num1, double num2) {
         double result = 0;
 
         try {
-            // 사칙연산 switch
             switch (operator) {
                 case "+":
-                    result = num1 + num2; // 더하기 연산
+                    result = addOperator.operate(num1, num2);
                     break;
                 case "-":
-                    result = num1 - num2; // 빼기 연산
+                    result = subtractOperator.operate(num1, num2);
                     break;
                 case "*":
-                    result = num1 * num2; // 곱하기 연산
+                    result = multiplyOperator.operate(num1, num2);
                     break;
-                case "/":  // 나누기 연산
-                    if (num2 == 0) {
-                        throw new ArithmeticException("0으로 나눌 수 없습니다.");
-                    }
-                    result = num1 / num2;
+                case "/":
+                    result = divideOperator.operate(num1, num2);
                     break;
                 default:
                     System.out.println("유효하지 않은 연산자입니다. 다시 입력하세요.");
@@ -38,5 +43,4 @@ public class ArithmeticCalculator extends Calculator {
         addResult(result);
         return result;
     }
-
 }

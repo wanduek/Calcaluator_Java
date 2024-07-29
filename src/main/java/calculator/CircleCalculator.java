@@ -1,7 +1,5 @@
 package calculator;
 
-import java.util.ArrayList;
-
 public class CircleCalculator extends Calculator {
 
     public static final double PI = 3.14159265358979323846;
