@@ -1,17 +1,18 @@
 package calculator;
 
 public class ArithmeticCalculator extends Calculator {
-    private AddOperator addOperator;
-    private SubtractOperator subtractOperator;
-    private MultiplyOperator multiplyOperator;
-    private DivideOperator divideOperator;
+    private Operation addOperator;
+    private Operation subtractOperator;
+    private Operation multiplyOperator;
+    private Operation divideOperator;
+    private Operation modOperator;
 
     public ArithmeticCalculator() {
-        super(); // 부모 클래스의 생성자 호출
         this.addOperator = new AddOperator();
         this.subtractOperator = new SubtractOperator();
         this.multiplyOperator = new MultiplyOperator();
         this.divideOperator = new DivideOperator();
+        this.modOperator = new ModOperator(); // 새로운 연산자 추가
     }
 
     public double calculate(String operator, double num1, double num2) {
@@ -30,6 +31,9 @@ public class ArithmeticCalculator extends Calculator {
                     break;
                 case "/":
                     result = divideOperator.operate(num1, num2);
+                    break;
+                case "%":  // 나머지 연산 추가
+                    result = modOperator.operate(num1, num2);
                     break;
                 default:
                     System.out.println("유효하지 않은 연산자입니다. 다시 입력하세요.");

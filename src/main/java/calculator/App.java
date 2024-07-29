@@ -22,7 +22,7 @@ public class App {
                     double num2 = sc.nextDouble();
 
                     sc.nextLine(); // num1, num2 뒤의 줄 바꿈 문자 처리
-                    System.out.println("사칙연산의 기호를 입력하세요 (+, -, *, /)");
+                    System.out.println("사칙연산의 기호를 입력하세요 (+, -, *, /,%)");
                     String operator = sc.nextLine();
 
                     if (operator.length() != 1) {
