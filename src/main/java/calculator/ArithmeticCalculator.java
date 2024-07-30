@@ -15,24 +15,24 @@ public class ArithmeticCalculator extends Calculator {//연산자 선언
         this.modOperator = new ModOperator(); // 새로운 연산자 추가
     }
 
-    public double calculate(String operator, double num1, double num2) {
+    public double calculate(OperatorType operator, double num1, double num2) {
         double result = 0;
 
         try {
             switch (operator) {
-                case "+":
+                case PLUS:
                     result = addOperator.operate(num1, num2);  // 더하기 연산자
                     break;
-                case "-":
+                case MINUS:
                     result = subtractOperator.operate(num1, num2); // 빼기 연산자
                     break;
-                case "*":
+                case MULTI:
                     result = multiplyOperator.operate(num1, num2); // 곱하기 연산자
                     break;
-                case "/":
+                case DIVIDE:
                     result = divideOperator.operate(num1, num2); // 나누기 연산자
                     break;
-                case "%":  // 나머지 연산 추가
+                case MOD:  // 나머지 연산 추가
                     result = modOperator.operate(num1, num2);// 나누기 몫 연산자
                     break;
                 default:

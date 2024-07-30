@@ -23,14 +23,12 @@ public class App {
 
                     sc.nextLine(); // num1, num2 뒤의 줄 바꿈 문자 처리
                     System.out.println("사칙연산의 기호를 입력하세요 (+, -, *, /,%)");
-                    String operator = sc.nextLine();
+                   char operator = sc.nextLine().charAt(0);
 
-                    if (operator.length() != 1) {
-                        System.out.println("유효하지 않은 연산자입니다. 다시 입력하세요");
-                        continue;
-                    }
+                    OperatorType tg = OperatorType.type(operator);
 
-                    double result = arithmeticCalculator.calculate(operator, num1, num2);
+
+                    double result = arithmeticCalculator.calculate(tg, num1, num2);
 
                     if (Double.isNaN(result)) {
                         continue; // 오류가 발생했으므로 루프의 시작으로 돌아감

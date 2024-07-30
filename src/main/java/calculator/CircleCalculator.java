@@ -2,7 +2,7 @@ package calculator;
 
 public class CircleCalculator extends Calculator {//Calculator를 통해 상속 받음
 
-    public static final double PI = 3.14159265358979323846; //파이값 고정
+    public final double PI = 3.14159265358979323846; //파이값 고정
 
     public double calculateCircleAre(double radius) {
         double circleresult = 0;
