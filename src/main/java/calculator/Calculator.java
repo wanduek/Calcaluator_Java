@@ -19,11 +19,11 @@ public class Calculator {
         resultList.add(result);
     }
 
-    public void removeResult() {
+    public void removeResult() { //처음나온 결과 값 삭제
         if (!resultList.isEmpty()) {
             resultList.remove(0); // 처음 저장된 결과를 삭제
         } else {
-            System.out.println("삭제할 결과가 없습니다.");
+            System.out.println("삭제할 결과가 없습니다."); //결과 값이 없을때
         }
     }
 
