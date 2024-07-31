@@ -7,12 +7,12 @@ public class ArithmeticCalculator extends Calculator {//연산자 선언
     private Operation divideOperator;
     private Operation modOperator;
 
-    public ArithmeticCalculator() {//
+    public ArithmeticCalculator() {//클래스 생성자
         this.addOperator = new AddOperator();
         this.subtractOperator = new SubtractOperator();
         this.multiplyOperator = new MultiplyOperator();
         this.divideOperator = new DivideOperator();
-        this.modOperator = new ModOperator(); // 새로운 연산자 추가
+        this.modOperator = new ModOperator(); // 필드값을 클래스의 인스턴스로 초기화
     }
 
     public double calculate(OperatorType operator, double num1, double num2) {
